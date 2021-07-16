@@ -13,10 +13,13 @@ export const ImgCardsList = () => {
             justifyContent="center"
             alignItems="center"
             >
+                
             <ImageList>
+
                 {imgs.map(data => {
                     return <ImgItem key={data.id} data={data}/>
                 })}
+
             </ImageList>
         </Grid>
     )

@@ -1,16 +1,17 @@
 import React from 'react';
-import { startImagesAdd } from '../../actions/images';
-import { useForm } from '../hooks/useForm';
+
 import {useDispatch} from 'react-redux';
-import { ImgCardsList } from './ImgCardsList';
 import Pagination from '@material-ui/lab/Pagination';
-import {  Button} from '@material-ui/core';
+import {Button} from '@material-ui/core';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
 import InputLabel from '@material-ui/core/InputLabel';
 
 import { makeStyles } from '@material-ui/core/styles';
+import { useForm } from '../../hooks/useForm';
+import { startImagesAdd } from '../../actions/images';
+import { ImgCardsList } from './ImgCardsList';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,18 +41,18 @@ export const ImgsScreen = () => {
         category:''
     });
     const {category} = formValues;
-
     const dispatch = useDispatch();
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(category);
+        if(category === '') return;
         dispatch(startImagesAdd(category));
 
     }   
 
     const handleChangePage = (e,p) => {
-        console.log(category);
+
         dispatch(startImagesAdd(category,p));
     }
 
