@@ -14,7 +14,8 @@ export const getImages = async( category, page=1 ) => {
             views:e.views,
             user:e.user,
             userImg:e.userImageURL,
-            type:e.type
+            type:e.type,
+            favorite:false
         }
     })
 

@@ -15,6 +15,8 @@ const imagesAdd = (images) => ({
 });
 
 
+
+
 //iamagenes que se muestran al inicio de la app por primera vez
 export const startLoadingImages = () => {
     return async(dispatch) => {
