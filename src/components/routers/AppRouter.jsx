@@ -4,10 +4,8 @@ import {useDispatch} from 'react-redux';
 import {
     BrowserRouter as Router,
     Switch,
-    Redirect,
     Route
   } from "react-router-dom";
-import { startLoadingImages } from '../../actions/images';
 import { Fav } from '../favorites/FavoritesScreen.jsx';
 
 import { ImgsScreen } from '../imgs/ImgsScreen';
@@ -21,9 +19,9 @@ export const AppRouter = () => {
 
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(startLoadingImages());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(startLoadingImages());
+    // }, [dispatch]);
 
     return (
         
@@ -37,11 +35,12 @@ export const AppRouter = () => {
                     path="/" 
                     component={ImgsScreen}/>
                 <Route
-                    exact
                     path="/favorites" 
                     component={Fav}/>
 
-                <Redirect to='/'/>
+                <Route
+                    path="*"
+                    component={()=>(<h1>Not Found</h1>)}/>
             </Switch>
         </Router>
     )
