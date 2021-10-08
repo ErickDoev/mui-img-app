@@ -1,10 +1,10 @@
 
-import React,{useEffect} from 'react';
-import {useDispatch} from 'react-redux';
+import React from 'react';
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Redirect
   } from "react-router-dom";
 import { Fav } from '../favorites/FavoritesScreen.jsx';
 
@@ -16,12 +16,6 @@ import { NavBar } from '../ui/NavBar';
 
 
 export const AppRouter = () => {
-
-    const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     dispatch(startLoadingImages());
-    // }, [dispatch]);
 
     return (
         
@@ -38,9 +32,7 @@ export const AppRouter = () => {
                     path="/favorites" 
                     component={Fav}/>
 
-                <Route
-                    path="*"
-                    component={()=>(<h1>Not Found</h1>)}/>
+                <Redirect to="/"/>
             </Switch>
         </Router>
     )
